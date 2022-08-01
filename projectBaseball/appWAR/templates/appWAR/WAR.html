@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+	<head>
+
+		<link rel="stylesheet" href="{% static 'cssWAR/style.css' %}">
+		<link rel="stylesheet" href="{% static 'cssWAR/style_button.css' %}">
+		<link rel="stylesheet" href="{% static 'cssWAR/style_input.css' %}">
+		<link href="https://fonts.googleapis.com/css?family=Poppins:600" rel="stylesheet">
+		<meta charset="UTF-8">
+		<title>Title</title>
+	</head>
+
+	<body>
+
+		<table id="predWAR">
+			<form method="post">
+
+				{% csrf_token %}
+				<th id="tableTitle", colspan="7">
+					<span class='name', id="titleName">타자</span>
+					<span class="title">WAR 예측</span>
+
+				</th>
+
+				<tr id="row1"><!-- 첫번째 줄 시작 -->
+					<td  rowspan="2">
+							<select class='select', name="hitterPitcher", id="id_select_hitterPitcher", onchange="selectCategory()">
+								<option name='hitter' value="selectHitter">타자</option>
+								<option name='pitcher' value="selectPitcher" >투수</option>
+							</select>
+
+					</td>
+
+					<td id="1">
+						 <div class="gmd gmd-1">
+							 <span id='h1' data_tooltip="최대 144, 최소 1, 평균 59" >경기
+							 </span>
+							 <span class="input">
+								 <input name="one", placeholder="수를 입력하세요">
+								 <span id="span1"></span>
+							 </span>
+						 </div>
+					</td>
+
+					<td id='2'>
+						<div class="gmd gmd-1">
+							 <span id='h2' data_tooltip="최대 672, 최소 0, 평균 183" >타석
+							 </span>
+							 <span class="input">
+								 <input name="two", placeholder="수를 입력하세요">
+								 <span id="span2"></span>
+							 </span>
+
+						 </div>
+					</td>
+
+
+					<td id='3'>
+						<div class="gmd gmd-1">
+							<span id='h3' data_tooltip="최대 600, 최소 0, 평균 161" >타수
+							</span>
+							 <span class="input">
+								 <input name='three', placeholder="수를 입력하세요">
+								 <span id="span3"></span>
+							 </span>
+						</div>
+					</td>
+
+					<td id="4">
+						<div class="gmd gmd-1">
+							<span id='h4' data_tooltip="최대 199, 최소 0, 평균 44">안타</span>
+							 <span class="input">
+								 <input name = 'four', placeholder="수를 입력하세요">
+								 <span id="span4"></span>
+							 </span>
+						</div>
+					</td>
+
+					<td id="5">
+						<div class="gmd gmd-1">
+							<span id='h5' data_tooltip="최대 53, 최소 0, 평균 4">홈런</span>
+							 <span class="input">
+								 <input name='five', placeholder="수를 입력하세요">
+								 <span id="span5"></span>
+							 </span>
+						</div>
+					</td>
+
+					<td id="6">
+						<div class="gmd gmd-1">
+							<span id='h6' data_tooltip="최대 130, 최소 0, 평균 23">득점</span>
+							 <span class="input">
+								 <input name = 'six', placeholder="수를 입력하세요">
+								 <span id="span6"></span>
+							 </span>
+						</div>
+					</td>
+
+				</tr>
+
+				<tr><!-- 두번째 줄 시작 -->
+					<td id="7">
+						<div class="gmd gmd-1">
+							<span id='h7' data_tooltip="최대 146, 최소 1, 평균 22" >타점</span>
+							 <span class="input">
+								 <input name='seven', placeholder="수를 입력하세요">
+								 <span id="span7"></span>
+							 </span>
+						</div>
+					</td>
+
+					<td id="8">
+						<div class="gmd gmd-1">
+							<span id='h8' data_tooltip="최대 109, 최소 1, 평균 16" >볼넷</span>
+							 <span class="input">
+								 <input name="eight"  placeholder="수를 입력하세요">
+								 <span id="span8"></span>
+							 </span>
+						</div>
+					</td>
+
+					<td id="9">
+						<div class="gmd gmd-1">
+							<span id='h9' data_tooltip="최대 161, 최소 1, 평균 32" >삼진</span>
+							 <span class="input">
+								 <input name='nine', placeholder="수를 입력하세요">
+								 <span id="span9"></span>
+							 </span>
+						</div>
+					</td>
+
+					<td id="10">
+						<div class="gmd gmd-1">
+							<span id='h10' data_tooltip="최대 60, 최소 1, 평균 3" >도루</span>
+							 <span class="input">
+								 <input name="ten", placeholder="수를 입력하세요">
+								 <span id="span10"></span>
+							 </span>
+						</div>
+					</td>
+
+					<td id="11">
+						<div class="gmd gmd-1">
+							<span id='h11' data_tooltip="최대 1.0, 최소 0.0, 평균 0.22" >타율</span>
+							 <span class="input">
+								 <input name='eleven', placeholder="수를 입력하세요">
+								 <span id="span11"></span>
+							 </span>
+						</div>
+					</td>
+
+
+					<td id="12">
+						<div id="box", class="">
+							<span id='h12' data_tooltip="" ></span>
+							 <span class="input">
+								 <input id='hiddenInput' type='hidden' name='twelve' placeholder="수를 입력하세요">
+								 <span id="span12"></span>
+							 </span>
+						</div>
+					</td>
+
+
+				</tr>
+
+
+				<tr> <!-- 세번째 줄 시작 -->
+					<td id="send" colspan="8">
+
+						<button name="predict" class="button button--winona button--border-thick button--round-l button--text-upper button--size-s button--text-thick"
+							   data-text="예측하기" value="nxtpredict">
+							<span>예측하기</span>
+						</button>
+					</td>
+				</tr>
+
+			</form>
+		</table>
+	</body>
+
+
+</html>
+<script>
+
+
+	function addCell(){
+		const table = document.getElementById('predWAR')
+		for(let i = 0; i < table.rows.length; i++) {
+
+			newcell = "<div class='gmd gmd-1'> <span data-tooltip2='최대 7.46, 최소 1.31, 평균 4.13'>ERA</span> <span2 class='input'> <input name='Ptwelve' placeholder='실수 입력'> <span2></span2></span2></div>"
+
+			if (i===2) {
+				const newCell = table.rows[2].insertCell(-1);
+				newCell.innerHTML = newcell;
+			}
+
+			else{}
+
+
+		}
+	}
+
+	function delCell(){
+		const table = document.getElementById('predWAR')
+		for(let i = 0; i < table.rows.length; i++) {
+
+			if (i===2) {
+				table.rows[2].deleteCell(-1);
+			}
+
+			else{}
+		}
+	}
+
+	function changeState(span_id,get_id,tooltip_var,data_var,span_color='span2',tooltip_color='data_tooltip2',tooltip_reverse='data_tooltip'){
+		/*input 창 색 바꾸기(default=pink)*/
+		inputColor = document.getElementById(span_id);
+		parent = inputColor.parentElement;
+		parent.removeChild(inputColor);
+		span = parent.appendChild(document.createElement(span_color));
+		span.setAttribute('id',span_id);
+
+		/*툴팁창 색 바꾸기(default=pink)*/
+		tooltip = document.getElementById(get_id);
+		tooltip.removeAttribute(tooltip_reverse);
+		tooltip.setAttribute(tooltip_color,tooltip_var);
+
+		/*변수 이름 바꾸기*/
+		document.getElementById(get_id).innerHTML = data_var;
+
+	}
+
+	function selectCategory(){
+
+
+
+		var locSelect = document.getElementById("id_select_hitterPitcher");
+
+		// select element에서 선택된 option의 value가 저장된다.
+		var selectValue = locSelect.options[locSelect.selectedIndex].value;
+
+		let one = "<div class='gmd gmd-1'> <span data-tooltip2='최대 11, 최소 0, 평균 3'>승리</span> <span2 class='input'><input name='Pone' placeholder='정수 입력'/><span2></span2></span2></div>"
+		let two = "<div class='gmd gmd-1'> <span data-tooltip2='최대 13, 최소 0, 평균 3'>패배</span> <span2 class='input'> <input name='Ptwo' placeholder='정수 입력'/> <span2></span2></span2></div>"
+		let three = "<div class='gmd gmd-1'> <span data-tooltip2='최대 44, 최소 0, 평균 6'>세이브</span> <span2 class='input'> <input name='Pthree' placeholder='정수 입력'/> <span2></span2></span2></div>"
+		let four = "<div class='gmd gmd-1'> <span data-tooltip2='최대 40, 최소 0, 평균 10'>홀드</span> <span2 class='input'> <input name='Pfour' placeholder='정수 입력'/> <span2></span2></span2></div>"
+		let five = "<div class='gmd gmd-1'> <span data-tooltip2='최대 10, 최소 0, 평균 2'>블론</span> <span2 class='input'> <input name='Pfive' placeholder='정수 입력'/> <span2></span2></span2></div>"
+		let six = "<div class='gmd gmd-1'> <span data-tooltip2='최대 80, 최소 50, 평균 60'>경기</span> <span2 class='input'> <input name='Psix' placeholder='정수 입력'/> <span2></span2></span2></div>"
+		let seven = "<div class='gmd gmd-1'> <span data-tooltip2='최대 11, 최소 0, 평균 0.4'>선발</span> <span2 class='input'> <input name='Pseven' placeholder='정수 입력'/> <span2></span2></span2></div>"
+		let eight = "<div class='gmd gmd-1'> <span data-tooltip2='최대 113.1, 최소 25.1, 평균 61.44'>이닝</span> <span2 class='input'> <input name='Peight' placeholder='실수 입력'/> <span2></span2></span2></div>"
+		let nine = "<div class='gmd gmd-1'> <span data-tooltip2='최대 12.31, 최소 3.0, 평균 7.97'>삼진%9</span> <span2 class='input'> <input name='Pnine' placeholder='실수 입력'/> <span2></span2></span2></div>"
+		let ten = "<div class='gmd gmd-1'> <span data-tooltip2='최대 10.12, 최소 1.01, 평균 3.61'>볼넷%9</span> <span2 class='input'> <input name='Pten' placeholder='실수 입력'/> <span2></span2></span2></div>"
+		let eleven = "<div class='gmd gmd-1'> <span data-tooltip2='최대 2.58, 최소 0.0, 평균 0.87'>홈런%9</span> <span2 class='input'> <input name='Peleven' placeholder='실수 입력'/> <span2></span2></span2></div>"
+
+
+
+		let one2 = "<div class='gmd gmd-1'> <span data-tooltip='최대 144, 최소 1, 평균 59'>경기</span> <span class='input'> <input name='Hone' placeholder='정수 입력'> <span></span></span><div>"
+		let two2 = "<div class='gmd gmd-1'> <span data-tooltip='최대 672, 최소 0, 평균 183'>타석</span> <span class='input'> <input name='Htwo' placeholder='정수 입력'> <span></span></span><div>"
+		let three2 = "<div class='gmd gmd-1'> <span data-tooltip='최대 600, 최소 0, 평균 161'>타수</span> <span class='input'> <input name='Hthree' placeholder='정수 입력'> <span></span></span><div>"
+		let four2 = "<div class='gmd gmd-1'> <span data-tooltip='최대 199, 최소 0, 평균 44'>안타</span> <span class='input'> <input name='Hfour' placeholder='정수 입력'> <span></span></span><div>"
+		let five2 = "<div class='gmd gmd-1'> <span data-tooltip='최대 53, 최소 0, 평균 4'>홈런</span> <span class='input'> <input name='Hfive' placeholder='정수 입력'> <span></span></span><div>"
+		let six2 = "<div class='gmd gmd-1'> <span data-tooltip='최대 130, 최소 0, 평균 23\n'>득점</span> <span class='input'> <input name='Hsix' placeholder='정수 입력'> <span></span></span><div>"
+		let seven2 = "<div class='gmd gmd-1'> <span data-tooltip='최대 146, 최소 1, 평균 22'>타점</span> <span class='input'> <input name='Hseven' placeholder='정수 입력'> <span></span></span><div>"
+		let eight2 = "<div class='gmd gmd-1'> <span data-tooltip='최대 109, 최소 1, 평균 16'>볼넷</span> <span class='input'> <input name='Height' placeholder='정수 입력'> <span></span></span><div>"
+		let nine2 = "<div class='gmd gmd-1'> <span data-tooltip='최대 161, 최소 1, 평균 32'>삼진</span> <span class='input'> <input name='Hnine' placeholder='정수 입력'> <span></span></span><div>"
+		let ten2 = "<div class='gmd gmd-1'> <span data-tooltip='최대 60, 최소 1, 평균 3\n'>도루</span> <span class='input'> <input name='Hten' placeholder='정수 입력'> <span></span></span><div>"
+		let eleven2 = "<div class='gmd gmd-1'> <span data-tooltip='최대 1.0, 최소 0.0, 평균 0.22'>타율</span> <span class='input'> <input name='Heleven' placeholder='0~1 실수 입력'> <span></span></span><div>"
+
+
+		if(selectValue=='selectPitcher') {
+
+
+			document.getElementById("titleName").innerHTML = '<span class="name2">투수</span>'
+
+			changeState('span1','h1','최대 11, 최소 0, 평균 3','승리')
+			changeState('span2','h2','최대 13, 최소 0, 평균 3','패배')
+			changeState('span3','h3','최대 44, 최소 0, 평균 6','세이브')
+			changeState('span4','h4','최대 40, 최소 0, 평균 10','홀드')
+			changeState('span5','h5','최대 10, 최소 0, 평균 2','블론')
+			changeState('span6','h6','최대 80, 최소 50, 평균 60','경기')
+			changeState('span7','h7','최대 11, 최소 0, 평균 0.4','선발')
+			changeState('span8','h8','최대 113.1, 최소 25.1, 평균 61.44','이닝')
+			changeState('span9','h9','최대 12.31, 최소 3.0, 평균 7.97','삼진%9')
+			changeState('span10','h10','최대 10.12, 최소 1.01, 평균 3.61','볼넷%9')
+			changeState('span11','h11','최대 2.58, 최소 0.0, 평균 0.87','홈런%9')
+
+			changeState('span12','h12','최대 7.46, 최소 1.31, 평균 4.13','ERA')
+			document.getElementById('box').setAttribute('class','gmd gmd-1')
+			document.getElementById('hiddenInput').setAttribute('type','text')
+
+
+
+
+		}
+		else{
+			document.getElementById("titleName").innerHTML = '<span class="name">타자</span>'
+
+			changeState('span1','h1','최대 144, 최소 1, 평균 59','경기','span','data_tooltip','data_tooltip2')
+			changeState('span2','h2','최대 672, 최소 0, 평균 183','타석','span','data_tooltip','data_tooltip2')
+			changeState('span3','h3','최대 600, 최소 0, 평균 161','타수','span','data_tooltip','data_tooltip2')
+			changeState('span4','h4','최대 199, 최소 0, 평균 44','안타','span','data_tooltip','data_tooltip2')
+			changeState('span5','h5','최대 53, 최소 0, 평균 4','홈런','span','data_tooltip','data_tooltip2')
+			changeState('span6','h6','최대 130, 최소 0, 평균 23','득점','span','data_tooltip','data_tooltip2')
+			changeState('span7','h7','최대 146, 최소 1, 평균 22','타점','span','data_tooltip','data_tooltip2')
+			changeState('span8','h8','최대 109, 최소 1, 평균 16','볼넷','span','data_tooltip','data_tooltip2')
+			changeState('span9','h9','최대 161, 최소 1, 평균 32','삼진','span','data_tooltip','data_tooltip2')
+			changeState('span10','h10','최대 60, 최소 1, 평균 3','도루','span','data_tooltip','data_tooltip2')
+			changeState('span11','h11','최대 1.0, 최소 0.0, 평균 0.22','타율','span','data_tooltip','data_tooltip2')
+
+			changeState('span12','h12','','','span2','data_tooltip2','data_tooltip')
+			document.getElementById('box').setAttribute('class','')
+			document.getElementById('hiddenInput').setAttribute('type','hidden')
+
+		}
+
+	}
+
+
+
+</script>
+
+<script>
+
+let 변수이름 = document.createElement('태그');
+변수.setAttribute('속성' , '값');
+부모태그.appendChild(생성한태그변수);
+
+var myDiv = document.getElementById("myDiv");
+var parent = myDiv.parentElement; // 부모 객체 알아내기
+parent.removeChild(myDiv); // 부모로부터 myDiv 객체 떼어내기
+
+</script>

@@ -1,0 +1,143 @@
+@font-face {
+    font-family: 'yg-jalnan';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.title{
+    color:white;
+    font-family: 'yg-jalnan';
+    font-size:40px;
+}
+
+.name{
+    color: #3caffd;
+    font-family: yg-jalnan;
+    font-size:40px;
+}
+
+.name2{
+    color: #fc04a8;
+    font-family: yg-jalnan;
+    font-size:40px;
+}
+
+th {
+   padding-bottom: 40px;
+}
+
+.select{
+    font-family: 'yg-jalnan';
+
+
+    background: url('../droparrow.png') no-repeat;
+    background-size: 15%;
+    background-position: calc(100% - 8px) center;
+    padding: 5px 30px 5px 10px;
+
+    /* 네이티브 화살표를 커스텀 화살표로 대체 */
+    border: 3px solid white;
+    border-radius: 3px; /* iOS 둥근모서리 제거 */
+    -webkit-appearance: none; /* 네이티브 외형 감추기 */
+    -moz-appearance: none;
+    appearance: none;
+    color:white;
+    width:100px;
+    margin-right:20px;
+
+}
+select:hover {
+  border-color: white;
+}
+
+.select::-ms-expand { display:none; }
+option{color:black;}
+
+
+table {
+     width: 100%;
+     text-align: center;
+     border-spacing: 0px 0px;
+    padding:20px;
+    text-layout:fixed;
+
+
+}
+
+ body {
+     padding-top: 10px;
+  background: #000000;
+
+}
+
+
+
+
+
+/*gmd=박스*/
+
+.gmd {
+  padding: 10px;
+    color:white;
+  border-radius: 3px;
+  display: block;
+  float: left;
+  margin: 10px;
+  position: relative;
+  text-align: center;
+  background:#1F1F1F;
+    font-family: 'yg-jalnan';
+    box-sizing:border-box;
+    width:150px;
+    padding-bottom: 20px;
+
+}
+
+
+
+  @keyframes motion {
+	0% {margin-top: 0px;}
+	100% {margin-top: 10px;}
+}
+.gmd-1 {
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  -ms-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  -o-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -ms-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}
+
+.gmd-1:hover {
+      -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  -moz-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  -ms-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  -o-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  animation: motion 0.3s linear 0s infinite alternate; margin-top: 0;
+}
+
+
+
+
+/* TOOLTIP */
+[data_tooltip]{position:relative;}
+[data_tooltip]:before,
+[data_tooltip]:after{visibility:hidden;opacity:0;position:absolute;left:50%;transform:translateX(-50%);white-space:nowrap;transition:all .2s ease;font-size:11px;font-family:dotum;letter-spacing:-1px;}
+[data_tooltip]:before{content:attr(data_tooltip);height:13px;position:absolute;top:-20px;padding:5px 10px;border-radius:5px;color:#fff;background: #3caffd;box-shadow:0 3px 8px rgba(165, 165, 165, 0.5);}
+[data_tooltip]:after{content: '';border-left:5px solid transparent;top:2px;border-right:5px solid transparent;border-top:5px solid #3caffd;}
+[data_tooltip]:not([data_tooltip=""]):hover:before{visibility:visible;opacity:1;top:-30px}
+[data_tooltip]:not([data_tooltip=""]):hover:after{visibility:visible;opacity:1;top:-8px}
+
+[data_tooltip2]{position:relative;}
+[data_tooltip2]:before,
+[data_tooltip2]:after{visibility:hidden;opacity:0;position:absolute;left:50%;transform:translateX(-50%);white-space:nowrap;transition:all .2s ease;font-size:11px;font-family:dotum;letter-spacing:-1px;}
+[data_tooltip2]:before{content:attr(data_tooltip2);height:13px;position:absolute;top:-20px;padding:5px 10px;border-radius:5px;color:#fff;background: #fc04a8;box-shadow:0 3px 8px rgba(165, 165, 165, 0.5);}
+[data_tooltip2]:after{content: '';border-left:5px solid transparent;top:2px;border-right:5px solid transparent;border-top:5px solid #fc04a8;}
+[data_tooltip2]:not([data_tooltip2=""]):hover:before{visibility:visible;opacity:1;top:-30px}
+[data_tooltip2]:not([data_tooltip2=""]):hover:after{visibility:visible;opacity:1;top:-8px}
