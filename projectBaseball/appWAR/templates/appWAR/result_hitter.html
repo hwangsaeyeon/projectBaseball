@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <link rel="stylesheet" href="{% static 'cssWAR/style_result.css' %}?after">
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+    <body align="center">
+    <th>
+        <span class='result_name', id="titleName">타자</span>
+        <span class="result_title">WAR 예측</span>
+    </th>
+    <div class="result" >
+        <span> WAR 값은:
+        {% for item in data %}
+            {{ item }}
+        {% endfor %}
+        </span>
+    </div>
+    </body>
+</html>

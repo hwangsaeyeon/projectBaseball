@@ -13,7 +13,7 @@ def WAR(request):
     #Model Load (Hitter, Pitcher)
     hit_path = os.path.dirname('C:/Users/sync7/test/Djangovenv/projectBaseball/appWAR/model/') + '\hitter_WAR.h5'
     hitterModel = tf.keras.models.load_model(hit_path)
-    pit_path = os.path.dirname('C:/Users/sync7/test/Djangovenv/projectBaseball/appWAR/model/') + '\pitcher_WAR.h5'
+    pit_path = os.path.dirname('C:/Users/sync7/test/Djangovenv/projectBaseball/appWAR/model/') + '\pitcher_WAR_allData.h5'
     pitcherModel = tf.keras.models.load_model(pit_path)
 
     #Select에서 Hitter를 선택했을 경우
@@ -51,12 +51,12 @@ def WAR(request):
         #다시 html파일로 넘겨준다
         hitter_predict = {'data' : list(y_pred)}
 
-        return render(request, 'appWAR/WAR_practice.html', hitter_predict)
+        return render(request, 'appWAR/result_hitter.html', hitter_predict)
 
     #Select에서 Pitcher를 선택했을 경우
     elif request.POST.get('hitterPitcher') == "selectPitcher":
 
-        train_path = os.path.dirname('C:/Users/sync7/test/Djangovenv/projectBaseball/appWAR/model/') + '\Pitcher_X_train.csv'
+        train_path = os.path.dirname('C:/Users/sync7/test/Djangovenv/projectBaseball/appWAR/model/') + '\Pitcher_X_train_allData.csv'
         pitcher_train = pd.read_csv(train_path, index_col=0)
         minmax_scaler = MinMaxScaler()
         pitcher_train_scaled = minmax_scaler.fit_transform(np.array(pitcher_train))
@@ -86,10 +86,9 @@ def WAR(request):
 
         pitcher_predict = {'data': list(y_pred)}
 
-        return render(request, 'appWAR/WAR_practice.html', pitcher_predict)
+        return render(request, 'appWAR/result_pitcher.html', pitcher_predict)
 
     return render(request, 'appWAR/WAR.html')
 
-def WAR_practice(request):
-    return render(request, 'appWAR/WAR_practice.html')
+
 

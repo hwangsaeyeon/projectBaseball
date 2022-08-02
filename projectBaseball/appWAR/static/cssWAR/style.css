@@ -3,28 +3,58 @@
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+
+}
+ body {
+     padding-top: 10px;
+     background: #000000 no-repeat;
+     background-size:cover;
+}
+
+table {
+     width: 100%;
+     text-align: center;
+     border-spacing: 0px 0px;
+    padding:20px;
+    text-layout:fixed;\
+    height:100%;
+
+}
+
+.titleAlign{
+    text-align:center;
+}
+.bgC{
+
 }
 
 .title{
     color:white;
-    font-family: 'yg-jalnan';
     font-size:40px;
+    -webkit-text-stroke: 0px black;
+    font-family: 'yg-jalnan';
+    text-shadow: 2px 2px 2px #1F1F1F;
 }
 
 .name{
     color: #3caffd;
-    font-family: yg-jalnan;
+    font-family: 'yg-jalnan';
+    -webkit-text-stroke: 0px black;
     font-size:40px;
+    text-shadow: 2px 2px 2px #1F1F1F;
 }
 
 .name2{
     color: #fc04a8;
-    font-family: yg-jalnan;
     font-size:40px;
+    font-family: 'yg-jalnan';
+    text-shadow: 2px 2px 2px #1F1F1F;
+
 }
 
 th {
    padding-bottom: 40px;
+
 }
 
 .select{
@@ -55,21 +85,8 @@ select:hover {
 option{color:black;}
 
 
-table {
-     width: 100%;
-     text-align: center;
-     border-spacing: 0px 0px;
-    padding:20px;
-    text-layout:fixed;
 
 
-}
-
- body {
-     padding-top: 10px;
-  background: #000000;
-
-}
 
 
 
