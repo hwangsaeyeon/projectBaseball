@@ -5,27 +5,23 @@
     font-style: normal;
 }
 
- body {
+body {
      padding-top: 10px;
      background: #000000  no-repeat;
      background-size:cover;
 }
 
-table {
-     width: 100%;
-     text-align: center;
-     border-spacing: 0px 0px;
-    padding:20px;
-    text-layout:fixed;
-    height:100%;
+/*title*/
 
+th {
+   padding-bottom: 40px;
 }
 
 .titleAlign{
     margin:20px;
     text-align:center;
-
 }
+
 .bgC{
     display:inline-block;
 }
@@ -36,7 +32,6 @@ table {
     -webkit-text-stroke: 0px black;
     font-family: 'yg-jalnan';
     text-shadow: 0 1px 3px #1F1F1F;
-
 
 }
 
@@ -56,11 +51,23 @@ table {
 
 }
 
-th {
-   padding-bottom: 40px;
+
+
+/*본문*/
+
+
+
+table {
+     width: 100%;
+     text-align: center;
+     border-spacing: 0px 0px;
+    padding:20px;
+    text-layout:fixed;
+    height:100%;
 
 }
 
+/*셀렉트(타자, 투수 선택하는 부분)*/
 .select{
     font-family: 'yg-jalnan';
 
@@ -88,16 +95,7 @@ select:hover {
 .select::-ms-expand { display:none; }
 option{color:black;}
 
-
-
-
-
-
-
-
-
-
-/*gmd=박스*/
+/*gmd=회색 박스*/
 
 .gmd {
   padding: 10px;
@@ -115,8 +113,6 @@ option{color:black;}
     padding-bottom: 20px;
 
 }
-
-
 
   @keyframes motion {
 	0% {margin-top: 0px;}
@@ -143,8 +139,6 @@ option{color:black;}
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   animation: motion 0.3s linear 0s infinite alternate; margin-top: 0;
 }
-
-
 
 
 /* TOOLTIP */

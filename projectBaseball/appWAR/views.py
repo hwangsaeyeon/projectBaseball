@@ -60,12 +60,31 @@ def WAR(request):
             transformed_val = y_pred * 8.33
             transformed_val = transformed_val.astype(int)
 
+        #balancing style을 위한 코드 정의
         ls=list()
         for i in range(len(str(list(y_pred)[0]))):
             ls.append(str(list(y_pred)[0])[i])
 
+        #결과에 대한 주석 위한 코드
+        if transformed_val < 1* 8.33:
+            idx = '최하위권'
+        elif transformed_val < 2* 8.33:
+            idx = '하위권'
+        elif transformed_val < 3* 8.33:
+            idx = '중하위권'
+        elif transformed_val < 4* 8.33:
+            idx = '중위권'
+        elif transformed_val < 5* 8.33:
+            idx = '중상위권'
+        elif transformed_val < 6* 8.33:
+            idx = '상위권'
+        else:
+            idx = '최상위권'
+
+
+
         # 다시 html파일로 넘겨준다
-        hitter_predict = {'data': list(y_pred), 'transformed_data':list(transformed_val), 'ls':ls}
+        hitter_predict = {'data': list(y_pred), 'transformed_data':list(transformed_val), 'ls':ls, 'result_idx':idx}
 
         return render(request, 'appWAR/result_hitter.html', hitter_predict)
 
@@ -111,12 +130,31 @@ def WAR(request):
             transformed_val = y_pred * 11.1
             transformed_val = transformed_val.astype(int)
 
+        # 결과에 대한 주석 위한 코드
+        if transformed_val < 1 * 11.1:
+            idx = '최하위권'
+        elif transformed_val < 2 * 11.1:
+            idx = '하위권'
+        elif transformed_val < 3 * 11.1:
+            idx = '중하위권'
+        elif transformed_val < 4 * 11.1:
+            idx = '중위권'
+        elif transformed_val < 5 * 11.1:
+            idx = '중상위권'
+        elif transformed_val < 6 * 11.1:
+            idx = '상위권'
+        else:
+            idx = '최상위권'
+
+        # balancing style을 위한 코드 정의
         ls = list()
         for i in range(len(str(list(y_pred)[0]))):
             ls.append(str(list(y_pred)[0])[i])
 
+
+
         #다시 html로 값을 넘겨준다
-        pitcher_predict = {'data': list(y_pred), 'transformed_data': list(transformed_val), 'ls':ls}
+        pitcher_predict = {'data': list(y_pred), 'transformed_data': list(transformed_val), 'ls':ls, 'result_idx':idx}
 
 
         return render(request, 'appWAR/result_pitcher.html', pitcher_predict)
