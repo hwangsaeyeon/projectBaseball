@@ -9,7 +9,7 @@
 		<link rel="stylesheet" href="{% static 'cssWAR/style_input.css' %}">
 		<link href="https://fonts.googleapis.com/css?family=Poppins:600" rel="stylesheet">
 		<meta charset="UTF-8">
-		<title>Title</title>
+		<title>war predict</title>
 	</head>
 
 	<body>
@@ -25,7 +25,6 @@
 			<form method="post">
 
 				{% csrf_token %}
-
 
 				<tr id="row1"><!-- 첫번째 줄 시작 -->
 					<td  rowspan="2">
@@ -43,7 +42,6 @@
 							 <span class="input">
 								 <input name="one", placeholder="수를 입력하세요" required>
 								 <span id="span1"></span>
-								 <span data_tooltip='' id="error"></span>
 							 </span>
 						 </div>
 					</td>

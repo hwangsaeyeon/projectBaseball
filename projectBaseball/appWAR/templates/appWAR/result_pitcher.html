@@ -2,9 +2,9 @@
 <html lang="en">
 {% load static %}
 <head>
-    <link rel="stylesheet" href="{% static 'cssWAR/style_pitcher.css' %}">
+    <link rel="stylesheet" href="{% static 'cssWAR/style_pitcher.css' %}?1after">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>hitter predicted data</title>
 
 </head>
     <body align="center">
@@ -14,15 +14,26 @@
     </th>
     <div class="result" >
         <br>
-        <span class="result_data">
-            {% for item in data %}
+            <h1>{% for item in ls %}
+            <span>{{item}}</span>
+            {% endfor %}
+            </h1>
+    </div>
+    <div class="transformed">
+        <span class="logo_1">9</span><span class="logo_2">2</span>
+        <span class="transformed_data">에서 예측하는 승리기여도는</span>
+        <span class="transformed_data_color">100</span>
+        <span class="transformed_data">점 만점 중</span>
+        <span class="transformed_data_color">
+            {% for item in transformed_data %}
                 {{ item }}
             {% endfor %}
         </span>
-    </div>
+    <span class="transformed_data">점 입니다.</span>
+        </div>
+
+
     </body>
-    <br>
-    <br>
     <div class="war_explain_title"><span>WAR(승리 기여도) 설명 <br></span></div>
     <div class="war_explain">
          <span>

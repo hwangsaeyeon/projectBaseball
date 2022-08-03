@@ -48,8 +48,24 @@ def WAR(request):
         #예측값 받아옴 (minmax-scaler 적용한 것을 되돌려준다, 소수점 2번째 자리에서 반올림)
         y_pred = np.round(list(np.exp(hitterModel.predict(hitter_test_scaled).ravel()) - 1), 2)
 
-        #다시 html파일로 넘겨준다
-        hitter_predict = {'data' : list(y_pred)}
+
+        #92의 WAR값으로 변환
+        #-2.xx~11.xx까지 분포 -2 에서 8까지 있다고 봐도 무방 (최소: -2.27, 최대 11.73)
+        #+12를 100으로 환산한다
+        if y_pred < 0 :
+            transformed_val = y_pred * 0
+        elif y_pred >= 11.73:
+            transformed_val = 100
+        else:
+            transformed_val = y_pred * 8.33
+            transformed_val = transformed_val.astype(int)
+
+        ls=list()
+        for i in range(len(str(list(y_pred)[0]))):
+            ls.append(str(list(y_pred)[0])[i])
+
+        # 다시 html파일로 넘겨준다
+        hitter_predict = {'data': list(y_pred), 'transformed_data':list(transformed_val), 'ls':ls}
 
         return render(request, 'appWAR/result_hitter.html', hitter_predict)
 
@@ -84,7 +100,24 @@ def WAR(request):
         # 예측값 받아옴 (minmax-scaler 적용한 것을 되돌려준다, 소수점 2번째 자리에서 반올림)
         y_pred = np.round(list(np.exp(pitcherModel.predict(pitcher_test_scaled).ravel()) - 1), 2)
 
-        pitcher_predict = {'data': list(y_pred)}
+
+        # 92의 WAR값으로 변환
+        # -1.xx~8.xx까지 분포 -1 에서 8까지 있다고 봐도 무방 (max:8.49, min:-1.35)
+        if y_pred<0:
+            transformed_val = 0
+        elif y_pred >= 8.49:
+            transformed_val = 100
+        else:
+            transformed_val = y_pred * 11.1
+            transformed_val = transformed_val.astype(int)
+
+        ls = list()
+        for i in range(len(str(list(y_pred)[0]))):
+            ls.append(str(list(y_pred)[0])[i])
+
+        #다시 html로 값을 넘겨준다
+        pitcher_predict = {'data': list(y_pred), 'transformed_data': list(transformed_val), 'ls':ls}
+
 
         return render(request, 'appWAR/result_pitcher.html', pitcher_predict)
 
