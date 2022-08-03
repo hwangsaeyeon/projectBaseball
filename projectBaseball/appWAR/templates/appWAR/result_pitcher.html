@@ -2,7 +2,7 @@
 <html lang="en">
 {% load static %}
 <head>
-    <link rel="stylesheet" href="{% static 'cssWAR/style_result.css' %}">
+    <link rel="stylesheet" href="{% static 'cssWAR/style_pitcher.css' %}">
     <meta charset="UTF-8">
     <title>Title</title>
 
@@ -13,11 +13,26 @@
         <span class="result_title">WAR 예측</span>
     </th>
     <div class="result" >
-        <span> WAR 값은:
-        {% for item in data %}
-            {{ item }}
-        {% endfor %}
+        <br>
+        <span class="result_data">
+            {% for item in data %}
+                {{ item }}
+            {% endfor %}
         </span>
     </div>
     </body>
+    <br>
+    <br>
+    <div class="war_explain_title"><span>WAR(승리 기여도) 설명 <br></span></div>
+    <div class="war_explain">
+         <span>
+            0-1: 보결 선수(Scrub) <br>
+            1-2: 보조 선수(Role Player) <br>
+            2-3: 주전 선수(Solid Starter) <br>
+            3-4: 좋은 선수(Good Player) <br>
+            4-5: 올스타(All Star) <br>
+            5-6: 슈퍼 스타(Super Star) <br>
+            6+ : MVP <br>
+        </span>
+    </div>
 </html>

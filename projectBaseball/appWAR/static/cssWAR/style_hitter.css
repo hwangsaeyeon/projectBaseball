@@ -1,0 +1,66 @@
+@font-face {
+    font-family: 'yg-jalnan';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+.result{
+    color:white;
+    font-family:'yg-jalnan';
+    text-align:center;
+    text-shadow: 0 1px 3px #1F1F1F;
+}
+
+
+.result_data{
+    font-size:100px;
+
+    color: #3cadfd
+}
+
+
+.result_title{
+    color:white;
+    font-family:'yg-jalnan';
+    font-size:50px;
+    text-align:center;
+    text-shadow: 0 1px 3px #1F1F1F;
+
+}
+
+.result_name{
+    text-align:center;
+    color: #3cadfd;
+    font-family: 'yg-jalnan';
+    font-size:55px;
+    text-shadow: 0 1px 3px #1F1F1F;
+
+}
+
+th{
+
+    padding-bottom: 40px;
+}
+
+
+body{
+    background: #1F1F1F url("../hitterbg.png") no-repeat;
+    background-size:cover;
+    margin-top: 40px;
+}
+
+.war_explain_title{
+    text-align: left;
+    color: #3cadfd;
+    padding-left:30px;
+    font-family: 'yg-jalnan';
+}
+
+.war_explain{
+
+    text-align:left;
+    color:white;
+    font-family: 'yg-jalnan';
+
+    padding-left:30px;
+}

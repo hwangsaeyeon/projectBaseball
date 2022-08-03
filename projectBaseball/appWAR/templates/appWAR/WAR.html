@@ -41,8 +41,9 @@
 							 <span id='h1' data_tooltip="최대 144, 최소 1, 평균 59" >경기
 							 </span>
 							 <span class="input">
-								 <input name="one", placeholder="수를 입력하세요">
+								 <input name="one", placeholder="수를 입력하세요" required>
 								 <span id="span1"></span>
+								 <span data_tooltip='' id="error"></span>
 							 </span>
 						 </div>
 					</td>
@@ -52,7 +53,7 @@
 							 <span id='h2' data_tooltip="최대 672, 최소 0, 평균 183" >타석
 							 </span>
 							 <span class="input">
-								 <input name="two", placeholder="수를 입력하세요">
+								 <input name="two", placeholder="수를 입력하세요" required>
 								 <span id="span2"></span>
 							 </span>
 
@@ -65,7 +66,7 @@
 							<span id='h3' data_tooltip="최대 600, 최소 0, 평균 161" >타수
 							</span>
 							 <span class="input">
-								 <input name='three', placeholder="수를 입력하세요">
+								 <input name='three', placeholder="수를 입력하세요" required>
 								 <span id="span3"></span>
 							 </span>
 						</div>
@@ -75,7 +76,7 @@
 						<div class="gmd gmd-1">
 							<span id='h4' data_tooltip="최대 199, 최소 0, 평균 44">안타</span>
 							 <span class="input">
-								 <input name = 'four', placeholder="수를 입력하세요">
+								 <input name = 'four', placeholder="수를 입력하세요" required>
 								 <span id="span4"></span>
 							 </span>
 						</div>
@@ -85,7 +86,7 @@
 						<div class="gmd gmd-1">
 							<span id='h5' data_tooltip="최대 53, 최소 0, 평균 4">홈런</span>
 							 <span class="input">
-								 <input name='five', placeholder="수를 입력하세요">
+								 <input name='five', placeholder="수를 입력하세요" required>
 								 <span id="span5"></span>
 							 </span>
 						</div>
@@ -95,7 +96,7 @@
 						<div class="gmd gmd-1">
 							<span id='h6' data_tooltip="최대 130, 최소 0, 평균 23">득점</span>
 							 <span class="input">
-								 <input name = 'six', placeholder="수를 입력하세요">
+								 <input name = 'six', placeholder="수를 입력하세요" required>
 								 <span id="span6"></span>
 							 </span>
 						</div>
@@ -108,7 +109,7 @@
 						<div class="gmd gmd-1">
 							<span id='h7' data_tooltip="최대 146, 최소 1, 평균 22" >타점</span>
 							 <span class="input">
-								 <input name='seven', placeholder="수를 입력하세요">
+								 <input name='seven', placeholder="수를 입력하세요" required>
 								 <span id="span7"></span>
 							 </span>
 						</div>
@@ -118,7 +119,7 @@
 						<div class="gmd gmd-1">
 							<span id='h8' data_tooltip="최대 109, 최소 1, 평균 16" >볼넷</span>
 							 <span class="input">
-								 <input name="eight"  placeholder="수를 입력하세요">
+								 <input name="eight"  placeholder="수를 입력하세요" required>
 								 <span id="span8"></span>
 							 </span>
 						</div>
@@ -128,7 +129,7 @@
 						<div class="gmd gmd-1">
 							<span id='h9' data_tooltip="최대 161, 최소 1, 평균 32" >삼진</span>
 							 <span class="input">
-								 <input name='nine', placeholder="수를 입력하세요">
+								 <input name='nine', placeholder="수를 입력하세요" required>
 								 <span id="span9"></span>
 							 </span>
 						</div>
@@ -138,7 +139,7 @@
 						<div class="gmd gmd-1">
 							<span id='h10' data_tooltip="최대 60, 최소 1, 평균 3" >도루</span>
 							 <span class="input">
-								 <input name="ten", placeholder="수를 입력하세요">
+								 <input name="ten", placeholder="수를 입력하세요" required>
 								 <span id="span10"></span>
 							 </span>
 						</div>
@@ -148,7 +149,7 @@
 						<div class="gmd gmd-1">
 							<span id='h11' data_tooltip="최대 1.0, 최소 0.0, 평균 0.22" >타율</span>
 							 <span class="input">
-								 <input name='eleven', placeholder="수를 입력하세요">
+								 <input name='eleven', placeholder="수를 입력하세요" required>
 								 <span id="span11"></span>
 							 </span>
 						</div>
@@ -159,7 +160,7 @@
 						<div id="box", class="">
 							<span id='h12' data_tooltip="" ></span>
 							 <span class="input">
-								 <input id='hiddenInput' type='hidden' name='twelve' placeholder="수를 입력하세요">
+								 <input id='hiddenInput' type='hidden' name='twelve' placeholder="수를 입력하세요" required>
 								 <span id="span12"></span>
 							 </span>
 						</div>
@@ -179,7 +180,7 @@
 					</td>
 
 				</tr>
-				<tr><td height=50px colspan="8"></tr>
+				<tr><td class="banner" height=50px colspan="8"></tr>
 
 			</form>
 		</table>
@@ -267,6 +268,11 @@
 
 	}
 
+
+
+</script>
+
+<script>
 
 
 </script>
